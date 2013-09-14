@@ -1,0 +1,23 @@
+
+/**
+ * fontset
+ *
+ * @version 1.2
+ * @author Creative Pulse
+ * @copyright Creative Pulse 2009-2013
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * @link http://www.creativepulse.gr
+ */
+
+
+.mod_fontset_buttons table {
+	border-collapse: collapse;
+}
+
+.mod_fontset_buttons td {
+	padding: 5px;
+}
+
+.mod_fontset_button {
+	cursor: pointer;
+}

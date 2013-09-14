@@ -1,0 +1,33 @@
+
+/**
+ * fontset
+ *
+ * @version 1.2
+ * @author Creative Pulse
+ * @copyright Creative Pulse 2009-2013
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * @link http://www.creativepulse.gr
+ */
+
+
+.mod_fontset {
+	text-align: center;
+}
+
+.mod_fontset_smaller, .mod_fontset_reset, .mod_fontset_larger {
+	cursor: pointer;
+	color: #000;
+	font-weight: bold;
+}
+
+.mod_fontset_smaller {
+	font-size: 10px;
+}
+
+.mod_fontset_reset {
+	font-size: 12px;
+}
+
+.mod_fontset_larger {
+	font-size: 14px;
+}

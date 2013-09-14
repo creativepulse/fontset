@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install type="module" version="1.5.0">
+	<name>Font Setter</name>
+	<author>Creative Pulse</author>
+	<creationDate>September 2013</creationDate>
+	<copyright>(C)2009-2013 Creative Pulse Ltd. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>joomla.support@creativepulse.gr</authorEmail>
+	<authorUrl>www.creativepulse.gr</authorUrl>
+	<version>1.2</version>
+	<description>Sets the page's base font size</description>
+	
+	<languages>
+		<language tag="en-GB">en-GB.mod_fontset.ini</language>
+		<language tag="el-GR">el-GR.mod_fontset.ini</language>
+	</languages>
+
+	<files>
+		<filename module="mod_fontset">mod_fontset.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<filename>css/buttons.css</filename>
+		<filename>css/default.css</filename>
+		<filename>images/index.html</filename>
+		<filename>images/buttons_decrease.png</filename>
+		<filename>images/buttons_increase.png</filename>
+		<filename>images/buttons_label.png</filename>
+		<filename>images/buttons_reset.png</filename>
+		<filename>images/txt_decrease.gif</filename>
+		<filename>images/txt_increase.gif</filename>
+		<filename>js/fontset.js</filename>
+		<filename>tmpl/index.html</filename>
+		<filename>tmpl/buttons.php</filename>
+		<filename>tmpl/default.php</filename>
+		<filename>tmpl/text_buttons.php</filename>
+	</files>
+	
+	<params>
+		<param name="cookie_name" type="text" default="fontset_info" label="Cookie name" description="Name for the browser's cookie. Default: fontset_info" />
+		<param name="base_size" type="text" default="12" label="Base size" description="Base font size. Default: 12" />
+		<param name="layout" type="list" default="default" label="Layout" description="The layout viewer mechanism for the module. The layouts Custom1-5 are placeholders for custom made layouts through the template.">
+			<option value="default">Default</option>
+			<option value="buttons">Buttons</option>
+			<option value="text_buttons">Text and buttons</option>
+			<option value="custom1">Custom 1</option>
+			<option value="custom2">Custom 2</option>
+			<option value="custom3">Custom 3</option>
+			<option value="custom4">Custom 4</option>
+			<option value="custom5">Custom 5</option>
+		</param>
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+		
+	</params>
+	
+	<params group="advanced">	
+		<param name="cache" type="list" default="0" label="Caching" description="Select whether to cache the content of this module">
+			<option value="1">Use global</option>
+			<option value="0">No caching</option>
+		</param>
+		<param name="cache_time" type="text" default="900" label="Cache Time" description="The time before the module is recached" />
+	</params>
+	
+</install>

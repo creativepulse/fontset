@@ -1,24 +1,29 @@
 <?php
 
 /**
- * fontset
+ * FontSet
  *
- * @version 1.2
+ * @version 1.3
  * @author Creative Pulse
- * @copyright Creative Pulse 2009-2013
+ * @copyright Creative Pulse 2009-2014
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @link http://www.creativepulse.gr
  */
 
-// no direct access
-defined('_JEXEC') or die('Restricted access');
 
-
-if (!class_exists('Mod_Fontset')) {
+if (!class_exists('CpWidget_Fontset')) {
 	
-	class Mod_Fontset {
+	class CpWidget_Fontset {
 
-		function instance_id($new = false) {
+		public static function get_model() {
+			static $instance = null;
+			if ($instance === null) {
+				$instance = new CpWidget_Fontset();
+			}
+			return $instance;
+		}
+
+		public function view_id($new = false) {
 			static $num = 0;
 
 			if ($new) {
@@ -28,9 +33,14 @@ if (!class_exists('Mod_Fontset')) {
 			return $num;
 		}
 
-		function prepare(&$params) {
-			$id = $this->instance_id(true);
+		public function load_libraries($name) {
+			static $libraries = array();
+			$result = !isset($libraries[$name]);
+			$libraries[$name] = true;
+			return $result;
+		}
 
+		function prepare(&$params) {
 			$this->cookie_name = trim($params->get('cookie_name', ''));
 			if ($this->cookie_name == '') {
 				$this->cookie_name = 'fontset_info';
@@ -41,11 +51,11 @@ if (!class_exists('Mod_Fontset')) {
 				$this->base_size = 12;
 			}
 
-			if ($id == 1) {
+			if ($this->load_libraries('*')) {
 				$document = JFactory::getDocument();
 				$document->addScriptDeclaration(
-'document.mod_fontset_cookie_name = "' . $this->cookie_name . '";
-document.mod_fontset_base_size = ' . $this->base_size . ';'
+'document.cpwdg_fontset_cookie_name = "' . $this->cookie_name . '";
+document.cpwdg_fontset_base_size = ' . $this->base_size . ';'
 				);
 				$document->addScript('modules/mod_fontset/js/fontset.js');
 			}

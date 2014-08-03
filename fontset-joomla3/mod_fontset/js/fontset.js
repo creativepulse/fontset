@@ -1,20 +1,20 @@
 
 /**
- * fontset
+ * FontSet
  *
- * @version 1.2
+ * @version 1.3
  * @author Creative Pulse
- * @copyright Creative Pulse 2009-2013
+ * @copyright Creative Pulse 2009-2014
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @link http://www.creativepulse.gr
  */
 
 
-function mod_fontset_cookie_set(nam, val) {
+function cpwdg_fontset_cookie_set(nam, val) {
 	document.cookie = nam  + "=" + encodeURIComponent(val);
 }
 
-function mod_fontset_cookie_get(nam) {
+function cpwdg_fontset_cookie_get(nam) {
 	if (typeof nam == "undefined") {
 		return false;
 	}
@@ -30,31 +30,31 @@ function mod_fontset_cookie_get(nam) {
 	return false;
 }
 
-function mod_fontset_cookie_del(nam) {
+function cpwdg_fontset_cookie_del(nam) {
 	document.cookie = nam + "=stub;expires=" + new Date("January 1, 1970").toGMTString();
 }
 
-function mod_fontset_size_set(increment) {
-	var size = parseInt(mod_fontset_cookie_get(document.mod_fontset_cookie_name));
+function cpwdg_fontset_size_set(increment) {
+	var size = parseInt(cpwdg_fontset_cookie_get(document.cpwdg_fontset_cookie_name));
 	if (isNaN(size)) {
-		mod_fontset_size_reset();
+		cpwdg_fontset_size_reset();
 	}
 	else {
 		size += increment;
 		document.body.style.fontSize = size + "px";
-		mod_fontset_cookie_set(document.mod_fontset_cookie_name, size);
+		cpwdg_fontset_cookie_set(document.cpwdg_fontset_cookie_name, size);
 	}
 }
 
-function mod_fontset_size_reset() {
-	document.body.style.fontSize = document.mod_fontset_base_size + "px";
-	mod_fontset_cookie_set(document.mod_fontset_cookie_name, document.mod_fontset_base_size);
+function cpwdg_fontset_size_reset() {
+	document.body.style.fontSize = document.cpwdg_fontset_base_size + "px";
+	cpwdg_fontset_cookie_set(document.cpwdg_fontset_cookie_name, document.cpwdg_fontset_base_size);
 }
 
-function mod_fontset_init() {
-	var size = parseInt(mod_fontset_cookie_get(document.mod_fontset_cookie_name));
+function cpwdg_fontset_init() {
+	var size = parseInt(cpwdg_fontset_cookie_get(document.cpwdg_fontset_cookie_name));
 	if (isNaN(size)) {
-		mod_fontset_size_reset();
+		cpwdg_fontset_size_reset();
 	}
 	else {
 		document.body.style.fontSize = size + "px";
@@ -62,8 +62,8 @@ function mod_fontset_init() {
 }
 
 if (window.addEventListener) {
-	window.addEventListener("load", mod_fontset_init, false);
+	window.addEventListener("load", cpwdg_fontset_init, false);
 }
 else if (window.attachEvent) {
-	window.attachEvent("onload", mod_fontset_init);
+	window.attachEvent("onload", cpwdg_fontset_init);
 }
